@@ -27,7 +27,11 @@ export default class QueryList extends Component {
       const parsed = queryString.parse(this.props.history.location.search);
       const query = parsed.query;
       const moviesList = await fetchSearchMovie(query);
-      this.setState({ moviesList: moviesList.data.results });
+      if (moviesList.data.results.length >= 1) {
+        this.setState({ moviesList: moviesList.data.results });
+      } else {
+        return alert('This is not relevant search parameter 😢 Try again');
+      }
     } catch (message) {
       this.setState({ message });
     }
@@ -44,7 +48,10 @@ export default class QueryList extends Component {
                 to={{
                   pathname: `/movies/${item.id}`,
                   // state: { from: `/movies?query=${this.props.query}` },
-                  state: { from: this.props.location.pathname, search: this.props.query}
+                  state: {
+                    from: this.props.location.pathname,
+                    search: this.props.query,
+                  },
                 }}
               >
                 {item.title}
