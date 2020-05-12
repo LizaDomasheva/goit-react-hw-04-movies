@@ -1,0 +1,2 @@
+(this["webpackJsonpcreate-app"]=this["webpackJsonpcreate-app"]||[]).push([[1],{88:function(e,t,n){"use strict";n.r(t);var a=n(0),p=n.n(a);t.default=function(){return p.a.createElement("h2",null,"page not found (:")}}}]);
+//# sourceMappingURL=error-page.0800a5d7.chunk.js.map
